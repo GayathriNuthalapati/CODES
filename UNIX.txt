@@ -168,3 +168,4 @@ Example : [hema@localhost Desktop]$ wc -w g.txt
 
 
 
+
