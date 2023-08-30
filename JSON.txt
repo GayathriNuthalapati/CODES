@@ -1,0 +1,83 @@
+Code to check whether the persons age is greater than 18 or not and the name given is string or not : 
+
+JSON Code : 
+
+ [{
+ 		"name" : "Gayathri",
+ 		"age" : 12
+ 	},
+ 	{
+ 		"name" : "Hema",
+ 		"age" : 18
+ 	},
+	{
+		"name" : "Pinky",
+		"age" : 20
+	}
+ ]
+
+JSON SCHEMA : 
+
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "array",
+  "items": [
+    {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "minimum" : 18,
+          "maximum" : 99
+        }
+      },
+      "required": [
+        "name",
+        "age"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "minimum" : 18,
+          "maximum" : 99
+        }
+      },
+      "required": [
+        "name",
+        "age"
+      ]
+    },
+    {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "minimum" : 18,
+          "maximum" : 99
+        }
+      },
+      "required": [
+        "name",
+        "age"
+      ]
+    }
+  ]
+}
+
+JSON SCHEMA VALIDATION : 
+
+Found 1 error(s)
+Message : Integer 12 is less than minimum value of 18.
+Schema path : #/items/0/properties/age/minimum

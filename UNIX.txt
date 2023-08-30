@@ -1,0 +1,170 @@
+COMMANDS USED IN UNIX :
+
+(1) pwd : The pwd command stands for print working directory and is used to display the directory in which we are currently working.
+Syntax : pwd
+Example : [hema@localhost Desktop]$ pwd
+\hema\home\Desktop
+
+(2) cd .. : This command is used to move a step backward in the given location.
+Syntax : cd ..
+Example : [hema@localhost Desktop]$ cd ..
+\hema\home
+
+(3)  mkdir : The mkdir command is used to create a directory. Here the files are always created in a folder format.
+Syntax : mkdir filename
+Example :  [hema@localhost Desktop]$ mkdir gayathri
+
+(4) rmdir : The rmdir command is used to delete an existing or completely empty folder.
+Syntax : rmdir filename
+Example : [hema@localhost Desktop]$ rmdir gayathri
+
+(5) touch : The touch command creates a file but not a directory and you can simply add an extension such as .txt after it to make it a Text File. Any type of files can be created by using the touch command.
+Syntax : touch filename.extension
+Example : [hema@localhost Desktop]$ touch g.pdf
+[hema@localhost Desktop]$ touch g.ppt
+[hema@localhost Desktop]$ touch g.py
+[hema@localhost Desktop]$ touch g.doc
+[hema@localhost Desktop]$ touch g.txt
+
+(6) chmod : The chmod command stands for change mode command. It is used to change the rights for a particular file. Basically there are 3 modes that we can use with the chmod command :
+1. +w (stands for write and it changes file permissions to write) 
+2. +r (stands for read and it changes file permissions to read) 
+3. +x (generally it is used to make a file executable)
+It consists of d 9 chars where the 1st 3 are for user, 2nd 3 are for group and last 3 are for public.
+rwe : User (u)
+rwe : Group (g)
+rwe : Public (o)
+Syntax : chomd u=rwe,g=rwe,o=rwe filename.extension
+Example : [hema@localhost Desktop]$ chmod u=r,g=r,o=r g.txt
+
+(7) ls : The ls command simply displays the contents of a directory.
+Syntax : ls
+Example : [hema@localhost Desktop]$ ls
+total 16K
+-rw-rw-r--. 1 hema hema   76 Aug 16 07:44 file1.txt~
+dr--r--r--. 2 hema hema 4.0K Aug 16 08:18 g
+-rw-rw-r--. 1 hema hema    0 Aug 16 07:40 gayatri.txt~
+-rw-rw-r--. 1 hema hema    4 Aug 16 08:17 g.doc
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.pdf
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.ppt
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.py
+-rw-rw-r--. 1 hema hema    4 Aug 16 08:17 g.txt
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:16 g.txt~
+
+(8) ls extensions :
+1. ls -l : The ls -l command is known as a long format that displays detailed information about files and directories.
+2. ls -a: The ls -a command is used to display all the files in hidden format.
+3. ls -lh : This command is used to print file size in human-readable format.
+Syntax : ls -lh
+Example : [hema@localhost Desktop]$ ls -lh
+total 16K
+-rw-rw-r--. 1 hema hema   76 Aug 16 07:44 file1.txt~
+dr--r--r--. 2 hema hema 4.0K Aug 16 08:18 g
+-rw-rw-r--. 1 hema hema    0 Aug 16 07:40 gayatri.txt~
+-rw-rw-r--. 1 hema hema    4 Aug 16 08:17 g.doc
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.pdf
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.ppt
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:15 g.py
+-rw-rw-r--. 1 hema hema    4 Aug 16 08:17 g.txt
+-rw-rw-r--. 1 hema hema    0 Aug 16 08:16 g.txt~
+4. ls -R : This command is used to list files and directories recursively, including subdirectories.
+Syntax : ls -R
+Example : [hema@localhost Desktop]$ ls -R
+.:
+file1.txt~  gayatri.txt~  g.doc  g.pdf  g.ppt  g.py  g.txt  g.txt~
+
+(9) cat : The cat command is used when we have to create a file and add information using the terminal.
+Syntax : cat > filename.txt
+Example : [hema@localhost Desktop]$ cat > g.txt
+ghyg
+grhg
+guhg
+jgih
+
+(10) cat extensions :
+1. cat >> filename : This command is used to add information to an existing file.
+Syntax : cat >> filename.txt
+Example : [hema@localhost Desktop]$ cat >> g.txt
+ggn
+nbdn
+2. cat filename1 filename2 > filename3 : This command is used to merge the information in filename1 and filename2 into filename3. Here the information in the destination file i.e; filename3 will be cleared and new data is added.
+Syntax : cat filename.txt filename2.txt > filename3.txt 
+Example : [hema@localhost Desktop]$ cat g.pdf g.doc > g.txt
+3. cat * : This command is used to dispaly all the information in the files.
+Syntax : cat *
+Example : [hema@localhost Desktop]$ cat *
+hello welcome to mulesoft training
+
+adding new data using cat >> command
+
+ghyg
+grhg
+guhg
+jgih
+ggn
+nbdn
+
+(11) grep : The grep is an acronym for globally search a regular expression and print it. The grep command searches the specified input fully(globally) for a match with the supplied pattern and displays it. If the match is found, the lines containing it would be displayed on the screen.
+Syntax : grep search_word filename.txt
+Example 1 : [hema@localhost Desktop]$ grep hello g.txt
+hello
+Syntax : grep -n search_word filename.txt
+Example 2 : [hema@localhost Desktop]$ grep -n ggn g.txt
+5:ggn
+The grep -n command is used to search for the word in the given file and it displays the line in which the word is present.
+
+(12) gzip : The gzip command is used to compress files. The compressed file consists of a GNU zip header and deflated data. If given a file as an argument, gzip compresses the file, adds a “.gz” suffix, and deletes the original file. With no arguments, gzip compresses the standard input and writes the compressed file to standard output.
+Syntax : gzip filename
+Example 1 : [hema@localhost Desktop]$ gzip g.txt
+Here the compressed file is created and the compressed file has .gz extension.
+Syntax : gzip -l filename.gz
+Example 2 : [hema@localhost Desktop]$ gzip -l g.txt.gz
+         compressed        uncompressed  ratio uncompressed_name
+                 52                  29  31.0% g.txt
+Here the compressed file is again uncompressed.
+
+(13) wc : The wc command stands for word count. It is mainly used for counting purpose. It is used to find out number of lines, word count, byte and characters count in the files specified in the file arguments. By default it displays four-columnar output.
+Syntax : wc filename
+Example : [hema@localhost Desktop]$ wc g.txt
+ 6  6 29 g.txt
+
+(14) wc extensions :
+Syntax : wc -l/ -c/ -w filename
+1. wc -l : This command is used to display the number of lines in the given file.
+Syntax : wc -l
+Example : [hema@localhost Desktop]$ wc -l g.txt
+6 g.txt
+2. wc -c : This command is used to display count of bytes present in a file.
+Syntax : wc -c
+Example : [hema@localhost Desktop]$ wc -c g.txt
+29 g.txt
+3. wc -w : This command is used to display the number of words present in a file.
+Syntax : wc -w
+Example : [hema@localhost Desktop]$ wc -w g.txt
+6 g.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,237 @@
+COMMANDS USED IN COMMAND PROMPT :
+
+(1) dir : The dir command is used to display all the files in the directory.
+Syntax : dir
+Example : G:\>dir
+ Volume in drive G is New Volume
+ Volume Serial Number is F0F4-057B
+
+ Directory of G:\
+
+03/02/2022  03:55 PM    <DIR>          beam-util-connector
+04/05/2022  02:43 PM        64,670,270 bsi.jar
+04/11/2022  01:48 PM         2,022,184 dalwiden-sys-api.jar
+10/27/2022  07:40 PM        42,610,262 Indrajith Meeting 1029-20221027_062539-Meeting Recording.mp4
+10/31/2022  02:42 PM        86,583,890 Indrajith-1029-20221028_051725-Meeting Recording.mp4
+02/14/2022  01:53 PM               978 Jenkinsfile
+11/08/2022  05:19 PM    <DIR>          pro
+10/08/2021  10:45 PM    <DIR>          software
+               5 File(s)    195,887,584 bytes
+               3 Dir(s)  367,267,717,120 bytes free
+
+(2) dir extensions :
+1. dir /p : This command pauses after each screenful of information.
+Syntax : dir /p
+Example : E:\>dir /p
+ Volume in drive E is New Volume
+ Volume Serial Number is A4E8-8454
+
+ Directory of E:\
+
+06/27/2023  01:24 PM    <DIR>          API
+06/12/2023  06:24 PM         9,684,434 assignment.jar
+08/14/2023  04:21 PM                 0 copy
+06/10/2023  04:11 PM           213,272 decision tree.png
+06/28/2023  03:02 PM             8,894 dwProject.zip
+08/14/2023  04:08 PM                 6 hi
+08/14/2023  04:08 PM                 6 hi.txt
+08/14/2023  04:08 PM                 6 ht.txt
+02/11/2023  05:02 PM    <DIR>          Indy classes
+05/24/2022  06:12 PM             2,707 keystore.p12
+06/28/2023  03:42 PM    <DIR>          myProject
+06/10/2023  06:03 PM         1,740,135 PODS Project notes.docx
+05/20/2023  04:49 PM         1,355,329 Salesforce Associate Certificate.docx
+08/05/2021  05:32 PM    <DIR>          shared-resource
+02/03/2023  07:50 PM    <DIR>          ssl
+04/21/2022  06:42 PM    <DIR>          studio-workspace
+02/27/2023  03:43 PM           389,709 Theme1.thmx
+              11 File(s)     13,394,498 bytes
+               6 Dir(s)  290,218,102,784 bytes free
+
+2. dir /q : This command is used to display the owner of the file.
+Syntax : dir /q
+Example : E:\>dir /q
+ Volume in drive E is New Volume
+ Volume Serial Number is A4E8-8454
+
+ Directory of E:\
+
+06/27/2023  01:24 PM    <DIR>          DESKTOP-FRLSPBH\i5     API
+06/12/2023  06:24 PM         9,684,434 DESKTOP-FRLSPBH\i5     assignment.jar
+08/14/2023  04:21 PM                 0 DESKTOP-FRLSPBH\i5     copy
+06/10/2023  04:11 PM           213,272 DESKTOP-FRLSPBH\i5     decision tree.png
+06/28/2023  03:02 PM             8,894 DESKTOP-FRLSPBH\i5     dwProject.zip
+08/14/2023  04:08 PM                 6 DESKTOP-FRLSPBH\i5     hi
+08/14/2023  04:08 PM                 6 DESKTOP-FRLSPBH\i5     hi.txt
+08/14/2023  04:08 PM                 6 DESKTOP-FRLSPBH\i5     ht.txt
+02/11/2023  05:02 PM    <DIR>          DESKTOP-FRLSPBH\i5     Indy classes
+05/24/2022  06:12 PM             2,707 DESKTOP-FRLSPBH\i5     keystore.p12
+06/28/2023  03:42 PM    <DIR>          DESKTOP-FRLSPBH\i5     myProject
+06/10/2023  06:03 PM         1,740,135 DESKTOP-FRLSPBH\i5     PODS Project notes.docx
+05/20/2023  04:49 PM         1,355,329 DESKTOP-FRLSPBH\i5     Salesforce Associate Certificate.docx
+08/05/2021  05:32 PM    <DIR>          DESKTOP-FRLSPBH\i5     shared-resource
+02/03/2023  07:50 PM    <DIR>          DESKTOP-FRLSPBH\i5     ssl
+04/21/2022  06:42 PM    <DIR>          DESKTOP-FRLSPBH\i5     studio-workspace
+02/27/2023  03:43 PM           389,709 DESKTOP-FRLSPBH\i5     Theme1.thmx
+              11 File(s)     13,394,498 bytes
+               6 Dir(s)  290,218,102,784 bytes free
+
+3. dir /w : This command uses wide list format, displaying file/folder names only, with multiple names on every line.
+Syntax : dir /w
+Example : E:\>dir /w
+ Volume in drive E is New Volume
+ Volume Serial Number is A4E8-8454
+
+ Directory of E:\
+
+[API]                                   assignment.jar                          copy
+decision tree.png                       dwProject.zip                           hi
+hi.txt                                  ht.txt                                  [Indy classes]
+keystore.p12                            [myProject]                             PODS Project notes.docx
+Salesforce Associate Certificate.docx   [shared-resource]                       [ssl]
+[studio-workspace]                      Theme1.thmx
+              11 File(s)     13,394,498 bytes
+               6 Dir(s)  290,218,102,784 bytes free
+
+(3) cd .. : This command is used to move a step backward in the given location.
+Syntax : cd ..
+Example : C:\Users\i5>cd ..
+
+C:\Users>
+
+(4) rename : The rename command is used to rename a particular file to another.
+Syntax : rename current_file_name.extension desired_name
+Example : rename hi.txt hello
+
+(5) copy : The copy command is used to copy 1 file to another.
+Syntax : copy 1st_file.extension 2nd_destination_file.extension
+Example 1 : E:\>copy ht.txt hi
+        1 file(s) copied.
+Here hi file is created and then copied.
+Example 2 : E:\>copy hi.txt ht.txt
+Overwrite ht.txt? (Yes/No/All): yes
+        1 file(s) copied.
+Here first file is copied to second file.
+
+(6) copy con : This command is used to copy the file along with some editing.
+Syntax : 1st_file.extension copy con 2nd_destination_file.extension
+Example : E:\>hi.txt copy con ht.txt
+
+(7) cls : The cls command is used to clear the entire screen.
+Syntax : cls
+Example : E:\>cls
+
+(8) rd : This command is used to delete the directory that is empty.
+Syntax : rd filename
+Example : C:\>rd hello
+
+(9) time : The time command is used to display the current time of the system. This time command is an internal command and it cannot be changed.
+Syntax : time
+Example : C:\>time
+The current time is: 16:14:39.40
+Enter the new time: 16.12.34.54
+A required privilege is not held by the client.
+
+(10) date : The date command is used to display the system's current date. It is an internal command and can't be changed.
+Syntax : date
+Example : C:\>date
+The current date is: Mon 08/14/2023
+Enter the new date: (mm-dd-yy) 08-01-33
+A required privilege is not held by the client.
+
+(11) color : The color command is used to change the color of the command prompt and also the color of text. If the first digit is only provided, then only the text color changes and the second digit is for background color change. Each digit can have any of the values in hexadecimal codepoint (0 – f) where each one corresponds to a unique color. 
+The digit-to-color correspondence is as follows :
+  0 = Black       8 = Gray
+  1 = Blue        9 = Light Blue
+  2 = Green       A = Light Green
+  3 = Aqua        B = Light Aqua
+  4 = Red         C = Light Red
+  5 = Purple      D = Light Purple
+  6 = Yellow      E = Light Yellow
+  7 = White       F = Bright White
+Syntax : color number1number2
+Example : E:\>color 1F
+
+(12) del : The del command is used to delete one or more files at the same time.
+Syntax : del file1 file2 file3
+Example 1 : E:\>del hi.txt
+Here only a single file is deleted.
+Example 2 : E:\>del hi.txt ht.txt h.txt
+Here multiple files are deleted.
+
+(13) cd : The cd command is used to change the current working directory.
+Syntax : cd filename
+Example : E:\>cd API
+
+E:\API>
+
+(14) exit : The exit command is used to exit from the command prompt.
+Syntax : exit
+Example : E:\>exit
+
+(15) help : The help command is used to provide more detailed information on any of the other command prompt commands.
+Syntax : help
+Example 1 : E:\>help
+Here the help commands displays the information about all commands.
+Syntax : help command_to_know
+Example 2 : E:\>help del
+Deletes one or more files.
+Here the help command displays the information about a particular command.
+
+(16) erase : The erase command is used to delete one or more files. The erase command is the same as the del command.
+Syntax : erase file1 file2 file3
+Example 1 : E:\>erase hi.txt
+Here only one file is deleted.
+Example 2 : E:\>erase hi.txt hello.txt
+Here multiple files are deleted.
+
+(17) md : The md command is the shorthand version of the mkdir command, which is used to make a directory.
+Syntax : md path_of_file_with_extension
+Example : E:\>md E:\hi.txt
+
+(18) mkdir : The mkdir command is used to create a directory.
+Syntax : mkdir path_of_main_file_with_extension path_of_sub_file_with_extension
+Example 1 : E:\>mkdir E:\h.txt
+Here h file is created.
+Example 2 : E:\>mkdir E:\hui.txt E:\hhi.txt
+Here hhi file is created and a sub file hui is also created within it.
+Path : E:\hhi.txt\hui.txt
+
+(19) move : The move command is used to move one or more files from one folder to another. The move command is also used to rename directories.
+Syntax : move <Source> <Target>
+Example : E:\>move E:\hhi.txt E:\hi.txt
+        1 dir(s) moved.
+Here the hhi file is moved to hi folder.
+
+(20) ren : The ren command is the shorthand version of the rename command, which is used to rename a file.
+Syntax : ren <present file name> <file name we want to change it to>
+Example 1 : E:\>ren hi.txt bye.txt
+example 2 : E:\>ren hi.txt bye
+Here bye file is created.
+
+(21) rename : The rename command is used to change the name of the individual file that you specify.
+Syntax : rename <present file name> <file name we want to change it to>
+Example : E:\>rename bjhnye.txt hiufgsf.txt
+
+(22) rmdir : The rmdir command is used to delete an existing or completely empty folder.
+Syntax : rmdir filename.extension
+Example : E:\>rmdir h.txt
+
+(23) title : The title command is used to set the command prompt window title.
+Syntax : title name_we_want_to_use
+Example : C:\Users\i5>title hi
+
+(24) ver : The ver command is used to display the current Windows or MS-DOS version number.
+Syntax : ver
+Example : C:\Users\i5\Documents\MY WORK>ver
+
+Microsoft Windows [Version 10.0.19045.3324]
+
+(25) verify : The verify command is used to enable or disable the ability of command prompt, or MS-DOS, to verify that files are written correctly to a disk.
+Syntax : verify
+Example : C:\Users\i5\Documents\MY WORK>verify
+VERIFY is off.
+
+
+
+

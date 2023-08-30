@@ -1,0 +1,45 @@
+XML Message :
+
+<employee>
+  <emp>
+     <fname>gayathri</fname>
+     <dep>dev</dep>
+  </emp>
+  <emp>
+     <fname>hema</fname>
+     <dep>dev</dep>
+  </emp>
+</employee>
+
+XML Schema : 
+
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="employee">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="emp" maxOccurs="unbounded" minOccurs="0">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element type="xs:string" name="fname"/>
+              <xs:element type="xs:string" name="dep"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
+
+DataWeave Interactive Learning Environment :
+
+Script :
+
+%dw 2.0
+output application/xml
+---
+data : payload.employee.emp.fname
+
+Output : 
+
+<?xml version='1.0' encoding='UTF-8'?>
+<data>gayathri</data>
