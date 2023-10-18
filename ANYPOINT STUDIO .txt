@@ -1,0 +1,219 @@
+ANYPOINT STUDIO :
+
+api life cycle : 3 things- design, implementation, management
+api spec 1st next raml create
+we create alerts in monitor stage, if issue raises it is cleared
+
+experience layer - frontend, inside umknown but we get response, frontend req to exp layer, exp to process, process to system, process output exp input, we expose our API to end users
+
+process layer- multiple info takes, converts according to user requirements, system output process input, all implementation here only, bussiness logic applied here, clubs multiple things into 1
+
+system layer - backend, not known to user, connects to database and retrive data and send that data to process layer then exp layer then to user, exp layer output system input, if there is only 1 system api then experience layer is directly connected without process layer, connect to extrnal systems like databases, ftp,  clubs multiple things into 1
+
+design center- creating a application, exchange- uses any application, management-permissions : all these comes under control
+design center- create api, create endpoint according to user, query params method inside,  uriparams method outside, indentation is mandatory, minlength, maxlength are used to set min and max values for strings, if we keep required = false, then it is not necessary- optional or we can use other method like queryparams_name?: 
+1.0.0- major.minor.patch verisons
+major- entire raml change, patch- small changes
+
+apikit router routes them based on the methods, generates private flow for methods 
+0.0.0.0:8081 also can be used
+/{name}: uriParameters: - to create uriParams, it is always a number, minimum and maximum are used to set restrictions to a number
+
+we need not create a  new application, the already existing one is updated if we use download RAML fron Design Center option, but we have to always publish it if we perform any changes or modifications, 
+
+in Raml comments #
+resource is end point in raml, both are same
+example : /customer
+post requires 2 responses to give data and to see the data
+for post success message is 201
+fragments are used for code reusability, any member in organization can use them from exchange by copying the path
+
+we cant have multiple method in 1 endpoint and endpoint name should be unique
+traits - same data in diff methods then traits are used
+is used to call traits
+libraries contain traits, data types, exmaple etc.. it contains all
+../ is used to get data from other folders in the library
+uses is used to call libaries
+we need not use !include for libraries, for all others we have to use
+
+runtime manager - to deploy our application
+control plane - control our applications
+in cloudhub both are controlled by mulesoft no access to customer
+2 ways to deploy from anypoint studio or deploy to cloudhub
+worker size - size of the application based on payload should be selected, amount of memory required
+worker - instance, server
+in trail version we can access only 1 worker, no runtime fabric. In enterprise version upto 8 workers can be choosen. 
+export is used to create a jar file
+
+deploy application process:
+process 1
+1st download the raml application
+open studio and create new project
+there import raml from localfile
+give file path
+after that the litener configurations etc are created
+then click export to convert the zip file into a jar file
+now open run time manager and give a name and select the jar file
+then click on deploy
+copy the path and replace the existing localhost url with copied link 
+
+process 2
+1st download the raml application
+open studio and create new project
+there import raml from localfile
+give file path
+after that the litener configurations etc are created
+click on anypoint platform
+then deploy to cloudhub
+give credentials
+then click deploy application
+then open runtime manager and copy the path
+
+cloudhub - completely mulesoft hosted infrastructure, both control and runtime plane will be controlled by mulesoft, here AWS ec2 instance is created, persistent vmqs are there, public
+if we increase worker size it deploys faster
+worker size to replica size in cloudhub 2.0
+workers to replica count
+we have to deploy the application in to the cloudhub we have to use vvid
+private spaces are increased in cloudhub 2.0 compared to cloudhub
+The cloudhub has dedicated load balancer and it is changed to ingress controller in cloudhub 2.0
+cloudhub 2.0 - containarized thing, completely mulesoft hosted infrastructure, here AWS ek2 cluster is created, persistent vmqs are not there, private
+
+on premise - it has no control plane and runtime engine managed by your organization, customer hosted infrastructure, we use mule standalone server to use runtime plane features, here the customer is responsible for every thing
+
+rtf - customer hosted infrastructure, deploy to servers by using dookers and kubernets, full controlled by customer but we can still use control plane features of mulesoft , it has both control plane and runtime plane, containarized thing, runtime plane is under organization control, but inside that it is a containarized thing because it has many dooker containers which internally uses kubernetes, each dooker container has 1 mule runtime engine, we can deploy multiple runtime servers, kubernetes are used to spin up or spin down , we can also extend servers or delete servers to manage the workload using kubernetes, THERE ARE 2 FLAVOURS OF RTF AVAILABLE
+1. APPLIANCE MODEL - mulesoft it gives software to mulesoft and this software can be installed anywhere, it can be private cloud or it can be wheremetal server or vm
+2. self managed kubernetes - here we can install this on the kubernetes cluster, kubernetes can be provided by the amazon, google, ajio, we have to purchase our own kubernetes
+
+
+API Manager - it is acomponent on anypoint platform that enables you to manage, govern and secure APIs, it enables you to manage clients, apply policies , define sevice level accesses, analyze traffic(no of requests) and set alerts, policies are used to restrict the access to some particular users, we can apply the policies by using proxy and without proxy(autodiscovery)
+with autodiscovery is used to connect runtime manager deployed applications with API created on the platform, we cant test app with dummy clientId and clientSecret
+acts as bridge between api manager and runtime manager
+when ever the application is created in api manager it gives a apiInstanceID which is unique for all
+CloudHub (1.0,2.0) applications only we can apply policies
+
+2.0 access token - a access token is given by using that only the user can access API, get access, experience APIs, more secure
+
+JWT validation - json token, token is given by using that inly the user can access API, get access, pass them in headers, experience APIs, more secure
+all other policies for system and process APIs
+
+basic authentication - asks username and password 
+
+client id enforcements - we have to do auto discovery 1st but wont work for proxy, 
+
+json threat protection, xml threat protection - prevent huge payloads with unneccesary repeated elements in a json or xml request
+
+HTTP caching - store response as a catch service and if we receive same req from consumer, we will execute from the catch 
+
+rate limiting - mul consumers, we set diff rate limits for consumers, at that point we have to define SLA types, service level access, 
+
+header injection - we forget adding header, we pass headers in postman, 
+
+header removal - unneccasary headers, headers in postman for removal
+
+ip allowlist - give ip address to access the service
+
+ip blocklist - give ip addresses to restrict them from consumng the service
+
+spike control - process the requests even after quopts is expired without clicking send after time is completed, stored in queue, also known as throttling
+
+OAuth 2.0 :
+1st create cilent
+2nd create token
+3rd validate token
+
+purpose of proxy :
+Disadvantages :
+for each proxy additional vcore and worker are needed to deploy, cost is increasing with proxy
+Advantages :
+we can share proxy endpoints without giving the actual endpoint, if api are used outside organization we must create proxy, within organization proxy not needed, in auto discovery we have seen lot of manual process required like getting API id, client ID, client secret, placing an application in runtime properties(client id, client secret), to avoid all these we can go for a second approach of creating a proxy application. The proxy application is nothing but kind of a wrapper to your main application, so for each application we will have 2 applications in runtime manager. 
+(1) your actual application
+(2) proxy application that is deployed which has API id, client id and client secret within it, so no manual effort required to deploy. its deployed from API manager.
+
+FILE CONNECTORS :
+used to handle the local folders
+read - reads the file and displays the data, if the file is updated then updated data is displayed
+write - writes something to the file, if we are writing to an existing file then the data is 
+copy - copies the file to another
+move - moves file from one location to another
+delete - deletes a particular file or folder
+list - 
+on new or updated file - dosen't require a listener, 
+scheduler - frequency can be used to trigger it after given time, we donot have to hit the application always
+
+security at data level for API we use secure properties
+1 propertie file is compulsory
+YAML is a human readable language, it is commonly used for configuration files and in applications where data is being stored or transmitted, 
+In MULE, we have to secure in 3 ways
+1. using mule properties editor
+2. using secure properties tool 
+link - https://secure-properties-api.us-e1.cloudhub.io/
+https://docs.mulesoft.com/mule-runtime/4.4/secure-configuration-properties
+3. using secure properties generator
+
+for single string:  java -cp secure-properties-tool.jar com.mulesoft.tools.SecurePropertiesTool string encrypt Blowfish CBC mulesoft "8081"
+
+for the file: java -cp secure-properties-tool.jar com.mulesoft.tools.SecurePropertiesTool file encrypt Blowfish CBC mule D:\secure\gayathri.yaml D:\secure\priya.yaml
+
+FTP Connector
+
+FTP connector is used to handle files folders on a remote file system.
+Features
+•	Ability to read files.
+•	Writing files to directory
+•	Copy and move files.
+•	Locking file so that no one can access file when the processing is going on.
+•	Listing the files and folders mentioned at directory path.
+•	Trigger a flow when the new file created or modified.
+
+
+https://filezilla-project.org/
+
+1 - Did you know ftp commands? 
+2 - Integrate mule with ftp server
+	- FileZilla tool
+	 - server - 
+		- To create ftp server on my machine
+		- assign some of shared directories to the ftp server
+		- add privileges
+		- adding users	
+	 - client –
+
+VM WARE:
+https://customerconnect.vmware.com/downloads/details?downloadGroup=WKST-1006-LX&productId=362
+
+https://drive.google.com/file/d/1EhyC9wjquk1zlytRBJ1FrIUgamMdM2N6/view
+
+https://drive.google.com/file/d/1AJTWQl2PWZs-K_-mjArx1jQZZt8CFvFZ/view
+
+SFTP :
+
+BATCH PROCESSING :
+divide the input payload into individual records and performs actions on these individual records and then sends the processed data to target systems
+in batch process has some extra advantage, it can handle failed records also. there are some properties by which we can ignore failed records and continue our process
+reliability - 0 loss, 
+in batch processing there are 3 phases.
+1. load and dispatch phase - convert payload into collection of records and then split the collection into individual records for processing
+2. process phase : it process the individual records asyncronously, batch step allows u to filter records, batch aggregator is used to aggretate records into groups based on aggregator size
+3. on complete phase : statistics of 
+we handle failure records in batch processing by using accept policy in batch job
+payload map read($, 'application/json') - to read
+
+scheduler only debug
+log to display in console
+
+Messaging Queues :
+queue is a temporary storage area to store the message
+rabbit mq : open source
+AMQP Connector is compulsory
+localhost : 15672 to start the server
+https://www.erlang.org/downloads - erlang download link
+https://www.rabbitmq.com/install-windows.html - rabbit mq 
+download
+the messages are deleted if they are consumed
+anypoint mq : paid, cloud based mq, publish or consume msgs between cloud and local
+subscriber - no listener
+active mq : open source
+
+Deploying by masking properties :
+when we deploy app we have to send some sensitive data, then there is a chance of hacking that is the reason we use masking
+

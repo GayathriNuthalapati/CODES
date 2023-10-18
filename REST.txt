@@ -1,0 +1,8 @@
+2  types:
+1. restful web services
+2. soap web services
+differences :
+soap only xml
+rest any language
+to write api we have to use wsdl services.
+wsdl is used to describe soap web servises. 

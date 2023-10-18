@@ -1,0 +1,32 @@
+(1) ESB : The full form of ESB is ENTERPRISE SERVICE BUS. 
+Example : If there are 2 applications named application 1 and application 2, ESD acts as a bridge between application 1 and application 2 to perform the required operations.
+The application 1 needs to modify the application according to the user requirements are given to the application 2.
+app1 - data apply modifications
+app1 - esb - app2
+
+(2) MULE : Mule takes data from other party applications and modifies the applications based on the requirements specified and sends those modified applications to the other parties. 
+For example, it takes data from application1 which needs to be modified. Mule modifies the data of application1 according to the requirements of other parties and sends it to other parties like application2 etc...
+
+(3) API : The API performs the following :
+1. takes input
+2. processes
+3. connects
+4. delivers the data
+
+mule msg strcture : for mule3
+mule event :
+1.mule message parts:
+payload either input or output - payload keyword
+attributes : queries or uri parameters or headers - 
+attributes.uriParams
+attributes.queryParams
+attributes.headers
+2. variables - vars keyword
+
+https://stanns.com/2023/cse/?name=gayathri&sports=no
+key value form
+filtering the data
+uri unique resource identifiers
+used for identifying
+call
+
